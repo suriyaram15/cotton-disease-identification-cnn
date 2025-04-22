@@ -1,7 +1,3 @@
-
----
-
-```markdown
 # 🌿 Cotton Plant Disease Identification using CNN
 
 This project leverages a Convolutional Neural Network (CNN) to identify diseases in cotton plant leaves. The model can classify the following categories:
@@ -145,5 +141,5 @@ Contributions, issues, and feature requests are welcome! Feel free to fork the r
 
 Developed by **Suriya Ram S**  
 GitHub: [@suriyaram15](https://github.com/suriyaram15)
-```
+
 
