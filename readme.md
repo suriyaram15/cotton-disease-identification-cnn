@@ -1,103 +1,149 @@
-```markdown
-# Cotton Plant Disease Identification using CNN
 
-This project identifies diseases in cotton plants using a Convolutional Neural Network (CNN). It can detect:
+---
+
+```markdown
+# 🌿 Cotton Plant Disease Identification using CNN
+
+This project leverages a Convolutional Neural Network (CNN) to identify diseases in cotton plant leaves. The model can classify the following categories:
+
 - Aphids
-- Army worm
+- Army Worm
 - Bacterial Blight
 - Powdery Mildew
-- Target spot
-- Healthy leaves
+- Target Spot
+- Healthy
 
-## Dataset
-The dataset contains 26.1k images of cotton plant leaves with various diseases. 
-Download the dataset from [Kaggle](https://www.kaggle.com/datasets/dhamur/cotton-plant-disease/data).
+---
 
-## Setup Instructions
+## 📂 Dataset
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/suriyaram15/cotton-disease-identification-cnn.git
-   cd cotton-disease-identification
-   ```
+The dataset contains approximately **26,100** labeled images of cotton plant leaves affected by various diseases, including healthy samples.
 
-2. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+📥 **Download Dataset**: [Kaggle - Cotton Plant Disease Dataset](https://www.kaggle.com/datasets/dhamur/cotton-plant-disease/data)
 
-3. Download the dataset from Kaggle and extract it into a `dataset` folder:
-   ```
-   cotton-disease-identification/
-   └── dataset/
-       └── Main dataset/
-           ├── train/
-           │   ├── Aphids/
-           │   ├── Army worm/
-           │   ├── Bacterial Blight/
-           │   ├── Powdery Mildew/
-           │   ├── Target spot/
-           │   └── Healthy/
-           └── validation/
-               ├── Aphids/
-               ├── Army worm/
-               ├── Bacterial Blight/
-               ├── Powdery Mildew/
-               ├── Target spot/
-               └── Healthy/
-   ```
+---
 
-4. Train the model:
-   ```bash
-   python train.py
-   ```
+## ⚙️ Setup Instructions
 
-5. Convert the model to TFLite (optional for mobile deployment):
-   ```bash
-   python test.py
-   ```
+### 1. Clone the Repository
+```bash
+git clone https://github.com/suriyaram15/cotton-disease-identification-cnn.git
+cd cotton-disease-identification-cnn
+```
 
-6. Make predictions:
-   ```bash
-   python predict.py
-   ```
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-## Requirements
+### 3. Prepare the Dataset
+
+Download and extract the dataset into the following structure:
+```
+cotton-disease-identification-cnn/
+└── dataset/
+    └── Main dataset/
+        ├── train/
+        │   ├── Aphids/
+        │   ├── Army worm/
+        │   ├── Bacterial Blight/
+        │   ├── Powdery Mildew/
+        │   ├── Target spot/
+        │   └── Healthy/
+        └── validation/
+            ├── Aphids/
+            ├── Army worm/
+            ├── Bacterial Blight/
+            ├── Powdery Mildew/
+            ├── Target spot/
+            └── Healthy/
+```
+
+---
+
+## 🧠 Model Architecture
+
+The CNN model is designed to be lightweight yet accurate, making it ideal for both web and mobile deployment.
+
+- **4 Convolutional Layers** with ReLU & MaxPooling
+- **1 Flatten Layer**
+- **1 Dropout Layer** (rate = 0.5)
+- **2 Dense Layers**:
+  - Dense(512, activation='relu')
+  - Dense(output_classes, activation='softmax')
+
+---
+
+## 🚀 Training the Model
+
+Train the CNN using:
+```bash
+python train.py
+```
+
+> ⏱️ Training time may vary depending on hardware (GPU recommended).
+
+---
+
+## 📱 Optional: Convert to TFLite
+
+For mobile or edge deployment:
+```bash
+python test.py
+```
+
+---
+
+## 🔍 Making Predictions
+
+To classify new cotton plant leaf images:
+```bash
+python predict.py
+```
+
+---
+
+## 📦 Requirements
+
 - Python 3.7+
-- TensorFlow 2.x
+- TensorFlow >= 2.0
 - OpenCV
 - NumPy
-- Matplotlib (for visualization)
+- Matplotlib
+- Pillow
 
-## Model Architecture
-The CNN model consists of:
-- 4 Convolutional layers with MaxPooling
-- 1 Flatten layer
-- 1 Dropout layer (0.5)
-- 2 Dense layers (512 neurons and output layer)
-
-## Performance
-The model achieves approximately 90-95% accuracy on the validation set.
-
-## License
-This project is licensed under the MIT License.
+Install using:
+```bash
+pip install tensorflow opencv-python numpy matplotlib pillow
 ```
 
-## 5. requirements.txt
+Alternatively, use the included `requirements.txt`.
 
+---
+
+## 📊 Performance
+
+- Validation Accuracy: **90% - 95%**
+- Optimized for both desktop and mobile environments (when using TFLite)
+- Lightweight architecture for efficient inference
+
+---
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to fork the repository and submit a pull request.
+
+---
+
+## 🙋‍♂️ Author
+
+Developed by **Suriya Ram S**  
+GitHub: [@suriyaram15](https://github.com/suriyaram15)
 ```
-tensorflow>=2.0
-opencv-python
-numpy
-matplotlib
-pillow
-```
 
-## Usage Instructions
-
-1. First, organize your dataset into train and validation folders with the class folders inside each.
-2. Run `train.py` to train the model (this may take several hours depending on your GPU).
-3. After training, you can convert the model to TFLite format using `test.py`.
-4. Use `predict.py` to make predictions on new images.
-
-The model architecture is designed to be lightweight enough to run on mobile devices (when converted to TFLite) while still maintaining good accuracy. You can adjust the hyperparameters in `train.py` based on your specific needs.
